@@ -13,3 +13,7 @@
 <!-- a link to create a new transaction -->
 
 <%= link_to "Create a new transaction", new_transaction_path %>
+
+<% if @transactions.balance < 0 %>
+  <h3>VEHEMENT CHASTISING!!</h3>
+<% end %>
