@@ -7,4 +7,11 @@ class TransactionTest < ActiveSupport::TestCase
     Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
     assert_equal Transaction.balance, 10.0
   end
+
+  test "can retrieve correct number of transactions" do
+    assert_equal Transaction.number, 4
+
+    Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
+    assert_equal Transaction.number, 5
+  end
 end
