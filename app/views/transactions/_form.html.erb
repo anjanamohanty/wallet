@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.select :transaction_type, ["Deposit", "Withdrawal"] %><br>
+    <%= f.select :transaction_type, [["Deposit", 0], ["Withdrawal", 1]] %><br>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
