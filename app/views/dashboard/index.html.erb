@@ -1,0 +1,15 @@
+<!-- the total amount of money in his/her account (this should be a method which is tested!) -->
+
+<h3>Account balance: <%=@transactions.balance%></h3>
+
+<!-- the total number of transactions ever -->
+
+<h3>Total number of transactions: <%=@transactions.number%></h3>
+
+<!-- a link to the list of transactions -->
+
+<%= link_to "List of transactions", transactions_path %>
+
+<!-- a link to create a new transaction -->
+
+<%= link_to "Create a new transaction", new_transaction_path %>
