@@ -26,4 +26,10 @@ class Transaction < ActiveRecord::Base
     last_month = where("transaction_type == 1").select {|x| x.created_at.strftime("%B") == 1.month.ago.strftime("%B")}
     last_month.count
   end
+
+  def self.current_biggest
+    current_month = where("transaction_type == 1").select {|x| x.created_at.strftime("%B") == Date.today.strftime("%B")}
+    current_month.sort! {|a,b| a.amount <=> b.amount}
+    current_month.last
+  end
 end

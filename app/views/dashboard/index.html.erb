@@ -23,11 +23,13 @@
 <p><%=@transactions.current_month_number%> transaction(s).</p>
 
 <!-- The total amount spent in the prior calendar month -->
-
+<!-- The total number of transactions in the prior calendar month -->
 <h3>Amount spent in <%=1.month.ago.strftime("%B")%>: $<%=@transactions.last_month_spend%></h3>
 <p><%=@transactions.last_month_number%> transaction(s).</p>
 
-<!-- The total number of transactions in the prior calendar month -->
 <!-- The biggest expense in the current calendar month -->
+<h4>Biggest expense this month:</h4>
+<h3><%=@transactions.current_biggest.amount%> at <%=@transactions.current_biggest.description%>
+    
 <!-- The biggest expense ever -->
 <!-- The name of the place/person where you have spent the most money (over all time) -->
