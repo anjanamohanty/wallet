@@ -97,6 +97,10 @@ th, td {
   width: 200px;
 }
 
+.btn-standard:hover {
+  color: #333333;
+}
+
 .link-standard {
   text-decoration: none;
   color: #3454D1;
