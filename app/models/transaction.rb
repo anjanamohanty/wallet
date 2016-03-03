@@ -30,7 +30,7 @@ class Transaction < ActiveRecord::Base
   def self.current_biggest
     current_month = where(transaction_type: 1).select {|x| x.created_at.strftime("%B") == Date.today.strftime("%B")}
     current_month.sort! {|a,b| a.amount <=> b.amount}
-    {amount: current_month.last.amount, description: current_month.last.description}
+    {amount: current_month.last.amount || 0, description: current_month.last.description || ""}
   end
 
   def self.biggest_ever
