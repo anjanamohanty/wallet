@@ -36,7 +36,7 @@ class Transaction < ActiveRecord::Base
   def self.biggest_ever
     list = where(transaction_type: 1).to_a
     list.sort! {|a,b| a.amount <=> b.amount}
-    list.last
+    {amount: list.last.amount, description: list.last.description}
   end
 
   def self.biggest_vendor
