@@ -53,6 +53,20 @@ class TransactionTest < ActiveSupport::TestCase
     Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
     assert_equal Transaction.current_biggest.amount, 920.0
   end
+
   # The biggest expense ever
+  test "can get biggest expense ever" do
+    assert_equal Transaction.biggest_ever.amount, 50.0
+
+    Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
+    assert_equal Transaction.biggest_ever.amount, 920.0
+  end
+
   # The name of the place/person where you have spent the most money (over all time)
+  test "can name the place where most money has been spent" do
+    assert_equal Transaction.biggest_vendor, "Last month test"
+
+    Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
+    assert_equal Transaction.biggest_vendor, "Testing"
+  end
 end

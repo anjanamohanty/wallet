@@ -32,4 +32,15 @@ class Transaction < ActiveRecord::Base
     current_month.sort! {|a,b| a.amount <=> b.amount}
     current_month.last
   end
+
+  def self.biggest_ever
+    list = where("transaction_type == 1").to_a
+    list.sort! {|a,b| a.amount <=> b.amount}
+    list.last
+  end
+
+  def self.biggest_vendor
+    vendors = where("transaction_type == 1").group("description").sum("amount")
+    vendors.key(vendors.values.max)
+  end
 end
