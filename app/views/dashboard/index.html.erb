@@ -18,14 +18,15 @@
 <%= link_to "Create a new transaction", new_transaction_path %>
 
 <!-- The total amount spent in the current calendar month -->
-
+<!-- The total number of transactions in the current calendar month -->
 <h3>Amount spent so far in <%=Date.today.strftime("%B")%>: $<%=@transactions.current_spend%></h3>
+<p><%=@transactions.current_month_number%> transaction(s).</p>
 
 <!-- The total amount spent in the prior calendar month -->
 
 <h3>Amount spent in <%=1.month.ago.strftime("%B")%>: $<%=@transactions.last_month_spend%></h3>
+<p><%=@transactions.last_month_number%> transaction(s).</p>
 
-<!-- The total number of transactions in the current calendar month -->
 <!-- The total number of transactions in the prior calendar month -->
 <!-- The biggest expense in the current calendar month -->
 <!-- The biggest expense ever -->
