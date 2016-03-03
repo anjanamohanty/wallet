@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Transaction.create(transaction_type: 0, amount: 150.0, description: "Initial balance")
+Transaction.create(transaction_type: 1, amount: 10.0, description: "Only Burger")
