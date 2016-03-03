@@ -1,38 +1,49 @@
-<!-- The total amount of money in his/her account (this should be a method which is tested!) -->
-<h2>Account balance: $<%=@transactions.balance%></h2>
-<% if @transactions.balance < 0 %>
-  <h3>VEHEMENT CHASTISING!!</h3>
-<% end %>
-
+<div id="account-balance">
+  <!-- The total amount of money in his/her account (this should be a method which is tested!) -->
+  <h2>Account balance: $<%=@transactions.balance%></h2>
+  <% if @transactions.balance < 0 %>
+    <h3>VEHEMENT CHASTISING!!</h3>
+  <% end %>
+</div>
 <!-- A link to the list of transactions -->
-<%= link_to "List of transactions", transactions_path %>
+<%= link_to "List of transactions", transactions_path, class: "btn-standard" %>
 
 <!-- A link to create a new transaction -->
-<%= link_to "Create a new transaction", new_transaction_path %>
+<%= link_to "Create a new transaction", new_transaction_path, class: "btn-standard" %>
 
-
-<!-- The total number of transactions ever -->
-<h4>Total number of transactions:</h4>
-<h3><%=@transactions.number%> transactions</h4>
-
-<!-- The total amount spent in the current calendar month -->
-<!-- The total number of transactions in the current calendar month -->
-<h4>Amount spent so far in <%=Date.today.strftime("%B")%>:</h4>
-<h3>$<%=@transactions.current_spend%> | <%=@transactions.current_month_number%> transaction(s).</h3>
-
-<!-- The total amount spent in the prior calendar month -->
-<!-- The total number of transactions in the prior calendar month -->
-<h4>Amount spent in <%=1.month.ago.strftime("%B")%>:</h4>
-<h3>$<%=@transactions.last_month_spend%> | <%=@transactions.last_month_number%> transaction(s).</h3>
-
-<!-- The biggest expense in the current calendar month -->
-<h4>Biggest expense this month:</h4>
-<h3><%=@transactions.current_biggest.amount%> at <%=@transactions.current_biggest.description%>
-
-<!-- The biggest expense ever -->
-<h4>Biggest expense ever:</h4>
-<h3><%=@transactions.biggest_ever.amount%> at <%=@transactions.biggest_ever.description%>
-
-<!-- The name of the place/person where you have spent the most money (over all time) -->
-<h4>Vendor with highest total spend:</h4>
-<h3><%=@transactions.biggest_vendor%></h3>
+<div>
+  <ul>
+    <li>
+      <!-- The total number of transactions ever -->
+      <h4>Total number of transactions:</h4>
+      <h3><%=@transactions.number%> transactions</h3>
+    </li>
+    <li>
+      <!-- The total amount spent in the current calendar month -->
+      <!-- The total number of transactions in the current calendar month -->
+      <h4>Amount spent so far in <%=Date.today.strftime("%B")%>:</h4>
+      <h3>$<%=@transactions.current_spend%> | <%=@transactions.current_month_number%> transaction(s).</h3>
+    </li>
+    <li>
+      <!-- The total amount spent in the prior calendar month -->
+      <!-- The total number of transactions in the prior calendar month -->
+      <h4>Amount spent in <%=1.month.ago.strftime("%B")%>:</h4>
+      <h3>$<%=@transactions.last_month_spend%> | <%=@transactions.last_month_number%> transaction(s).</h3>
+    </li>
+    <li>
+      <!-- The biggest expense in the current calendar month -->
+      <h4>Biggest expense this month:</h4>
+      <h3><%=@transactions.current_biggest.amount%> at <%=@transactions.current_biggest.description%>
+    </li>
+    <li>
+      <!-- The biggest expense ever -->
+      <h4>Biggest expense ever:</h4>
+      <h3><%=@transactions.biggest_ever.amount%> at <%=@transactions.biggest_ever.description%>
+    </li>
+    <li>
+      <!-- The name of the place/person where you have spent the most money (over all time) -->
+      <h4>Vendor with highest total spend:</h4>
+      <h3><%=@transactions.biggest_vendor%></h3>
+    </li>
+  </ul>
+</div>

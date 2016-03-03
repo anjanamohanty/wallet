@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Transactions</h1>
+<div class="transaction">
+  <h1>Transaction list</h1>
+</div>
 
 <table>
   <thead>
@@ -14,8 +16,9 @@
 
   <tbody>
     <% @transactions.each do |transaction| %>
+      <% transaction_type_array = ["Deposit", "Withdrawal"] %>
       <tr>
-        <td><%= transaction.transaction_type %></td>
+        <td class="type-label"><%= transaction_type_array[transaction.transaction_type]%></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.description %></td>
         <td><%= link_to 'Show', transaction %></td>
@@ -28,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to 'New Transaction', new_transaction_path, class: "btn-standard" %>
