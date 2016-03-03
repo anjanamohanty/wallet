@@ -19,3 +19,9 @@ four:
   transaction_type: 0
   amount: 20.0
   description: "From: Camden"
+
+five:
+  transaction_type: 1
+  amount: 50.0
+  description: "Last month test"
+  created_at: 2016-02-02 23:12:53.400376

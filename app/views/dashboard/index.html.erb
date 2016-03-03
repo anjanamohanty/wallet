@@ -1,19 +1,30 @@
-<!-- the total amount of money in his/her account (this should be a method which is tested!) -->
+<!-- The total amount of money in his/her account (this should be a method which is tested!) -->
 
 <h3>Account balance: <%=@transactions.balance%></h3>
-
-<!-- the total number of transactions ever -->
-
-<h3>Total number of transactions: <%=@transactions.number%></h3>
-
-<!-- a link to the list of transactions -->
-
-<%= link_to "List of transactions", transactions_path %>
-
-<!-- a link to create a new transaction -->
-
-<%= link_to "Create a new transaction", new_transaction_path %>
-
 <% if @transactions.balance < 0 %>
   <h3>VEHEMENT CHASTISING!!</h3>
 <% end %>
+
+<!-- The total number of transactions ever -->
+
+<h3>Total number of transactions: <%=@transactions.number%></h3>
+
+<!-- A link to the list of transactions -->
+
+<%= link_to "List of transactions", transactions_path %>
+
+<!-- A link to create a new transaction -->
+
+<%= link_to "Create a new transaction", new_transaction_path %>
+
+<!-- The total amount spent in the current calendar month -->
+
+<h3>Amount spent so far in <%=Date.today.strftime("%B")%>: <%=@transactions.current_spend%></h3>
+
+<!-- The total amount spent in the prior calendar month -->
+
+<!-- The total number of transactions in the current calendar month -->
+<!-- The total number of transactions in the prior calendar month -->
+<!-- The biggest expense in the current calendar month -->
+<!-- The biggest expense ever -->
+<!-- The name of the place/person where you have spent the most money (over all time) -->
