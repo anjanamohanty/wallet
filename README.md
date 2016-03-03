@@ -30,7 +30,7 @@ List of transactions:
 localhost:3000/transactions
 ```
 
-New transaction:
+New transactions:
 ```
 localhost:3000/transactions/new
 ```
