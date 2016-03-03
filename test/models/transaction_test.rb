@@ -48,18 +48,18 @@ class TransactionTest < ActiveSupport::TestCase
 
   # The biggest expense in the current calendar month
   test "can get biggest expense for current month" do
-    assert_equal Transaction.current_biggest.amount, 50.0
+    assert_equal Transaction.current_biggest[:amount], 50.0
 
     Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
-    assert_equal Transaction.current_biggest.amount, 920.0
+    assert_equal Transaction.current_biggest[:amount], 920.0
   end
 
   # The biggest expense ever
   test "can get biggest expense ever" do
-    assert_equal Transaction.biggest_ever.amount, 50.0
+    assert_equal Transaction.biggest_ever[:amount], 50.0
 
     Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
-    assert_equal Transaction.biggest_ever.amount, 920.0
+    assert_equal Transaction.biggest_ever[:amount], 920.0
   end
 
   # The name of the place/person where you have spent the most money (over all time)
