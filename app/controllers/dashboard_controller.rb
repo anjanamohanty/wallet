@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    @transactions = Transaction.all
+    @statistics = Transaction.statistics
   end
 end
