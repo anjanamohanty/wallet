@@ -24,8 +24,11 @@ class TransactionTest < ActiveSupport::TestCase
     Transaction.create!(transaction_type: 1, amount: 920.0, description: "Testing")
     assert_equal Transaction.current_spend, 1010.0
   end
-  
+
   # The total amount spent in the prior calendar month
+  test "can retrieve correct spend for prior month" do
+    assert_equal Transaction.last_month_spend, 50.0
+  end
   # The total number of transactions in the current calendar month
   # The total number of transactions in the prior calendar month
   # The biggest expense in the current calendar month

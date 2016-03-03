@@ -1,6 +1,6 @@
 <!-- The total amount of money in his/her account (this should be a method which is tested!) -->
 
-<h3>Account balance: <%=@transactions.balance%></h3>
+<h3>Account balance: $<%=@transactions.balance%></h3>
 <% if @transactions.balance < 0 %>
   <h3>VEHEMENT CHASTISING!!</h3>
 <% end %>
@@ -19,9 +19,11 @@
 
 <!-- The total amount spent in the current calendar month -->
 
-<h3>Amount spent so far in <%=Date.today.strftime("%B")%>: <%=@transactions.current_spend%></h3>
+<h3>Amount spent so far in <%=Date.today.strftime("%B")%>: $<%=@transactions.current_spend%></h3>
 
 <!-- The total amount spent in the prior calendar month -->
+
+<h3>Amount spent in <%=1.month.ago.strftime("%B")%>: $<%=@transactions.last_month_spend%></h3>
 
 <!-- The total number of transactions in the current calendar month -->
 <!-- The total number of transactions in the prior calendar month -->

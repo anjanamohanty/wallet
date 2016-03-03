@@ -11,4 +11,9 @@ class Transaction < ActiveRecord::Base
     current_month = where("transaction_type == 1").select {|x| x.created_at.strftime("%B") == Date.today.strftime("%B")}
     current_month.reduce(0.0) {|sum, i| sum + i.amount}
   end
+
+  def self.last_month_spend
+    last_month = where("transaction_type == 1").select {|x| x.created_at.strftime("%B") == 1.month.ago.strftime("%B")}
+    last_month.reduce(0.0) {|sum, i| sum + i.amount}
+  end
 end
